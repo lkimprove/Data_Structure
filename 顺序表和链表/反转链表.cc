@@ -28,6 +28,33 @@ public:
 };
 
 
+//头插法
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode* newHead = nullptr, *curr = head;
+
+        while(curr != nullptr){
+            head = curr->next;
+            curr->next = newHead;
+            newHead = curr;
+            curr = head;
+        }
+
+        return newHead;
+    }
+};
+
+
+
 //递归
 /**
  * Definition for singly-linked list.
@@ -80,8 +107,4 @@ public:
         return curr;
     }
 };
-
-
-
-
 
